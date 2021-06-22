@@ -4,6 +4,7 @@
   "description": "The FeestCoders Offical Discord Bot made with love, and as always open source",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,14 @@
   "homepage": "https://github.com/FeestCoders/discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "module-alias": "^2.2.2",
+    "ms": "^2.1.3"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@events": "events",
+    "@commands": "commands",
+    "@settings": "settings"
   }
 }

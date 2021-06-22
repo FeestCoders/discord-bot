@@ -1,26 +1,30 @@
-const Discord = require('discord.js');
-require('dotenv').config();
+require('dotenv').config()
+require('module-alias/register')
 
-const bot = new Discord.Client();
+let fs = require('fs')
+let discord = require('discord.js')
 
-const prefix = process.env.PREFIX;
+let bot = new discord.Client({
+    ws: {
+        intents: discord.Intents.ALL
+    },
+    partials: ['MESSAGE', 'CHANNEL']
+})
 
-bot.on('ready', () => {
-  console.log(`Logged in as ${bot.user.tag}!`);
-  bot.user.setActivity(`Open Source Projects`, { type: 'STREAMING', url: 'https://twitch.tv/discord' });
-});
+bot.invites = {}
+bot.commands = new discord.Collection()
 
-bot.on('message', message => {
+fs.readdirSync('commands').forEach(file => {
+    let command = require(`@commands/${file}`)
+    bot.commands.set(command.name, command)
+})
 
-  if (message.author.bot) return;
-  if (message.content.indexOf(prefix.length) !== 0) return;
+fs.readdirSync('events').forEach(file => {
+    let event = require(`@events/${file}`)
+    bot.on(event.name, event.run.bind(null, bot))
+})
 
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+bot.login(process.env.TOKEN)
 
-  if (command === 'ping') {
-    message.reply('Pong!');
-  }
-});
-
-bot.login(process.env.TOKEN);
+process.on('uncaughtException', console.error)
+process.on('unhandledRejection', console.error)
