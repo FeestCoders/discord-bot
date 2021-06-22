@@ -1,0 +1,29 @@
+{
+  "name": "feestcoders-discord-bot",
+  "version": "1.0.0",
+  "description": "The FeestCoders Offical Discord Bot made with love, and as always open source",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FeestCoders/discord-bot.git"
+  },
+  "keywords": [
+    "DiscordBot",
+    "Discordjs",
+    "Discord",
+    "OpenSource"
+  ],
+  "author": "FeestCoders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FeestCoders/discord-bot/issues"
+  },
+  "homepage": "https://github.com/FeestCoders/discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  }
+}
