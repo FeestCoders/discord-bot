@@ -25,5 +25,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+Have a suggestion? Reply to [this issue](https://github.com/FeestCoders/discord-bot/issues/1)
+
 ## License
 [MIT](https://github.com/FeestCoders/discord-bot/blob/master/LICENSE)
